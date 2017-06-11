@@ -5,14 +5,16 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QTextItem>
+#include <QTime>
+#include <QMap>
+#include <QPair>
 
-#define N 100
-#define M 100
+#define N 20
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    int map[N][M];
+    int map[N][N];
     int heightOfRobot;
     int xStatic;
     int yStatic;
@@ -24,8 +26,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void bresenhamLine(int x1, int y1, int x2, int y2);
+    void bresenhamLine(int x1, int y1, int x2, int y2);//стоит линию по Брезенхэму(первый парамнтр стационарная точка)
     void drawLineOnGrid(int x1, int y1, int x2, int y2);
+    void findDarkArea(QVector<QPair<int,int>>& coord, QVector<QPair<int,int>>& versities, int xS, int yS);
 };
 
 #endif // MAINWINDOW_H
